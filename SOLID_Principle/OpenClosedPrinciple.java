@@ -5,7 +5,10 @@ should be open for extension but closed for modification
 */
 public class OpenClosedPrinciple {
     public static void main(String[] args) {
-
+        Marker marker = new Marker("Camel","Red",2022,10);
+        Invoice markerInvoice = new Invoice(marker,3);
+        InvoiceDaoInterface markerDao = new DatabaseInvoiceDao();
+        markerDao.save(markerInvoice);
     }
 }
 
@@ -43,6 +46,7 @@ class DatabaseInvoiceDao implements InvoiceDaoInterface{
     @Override
     public void save(Invoice invoice){
         //Save to DB
+        System.out.println(invoice.getName()+ " invoice saved to database");
     }
 }
 

@@ -1,4 +1,4 @@
-package 1_SOLID_Principle;
+package SOLID_Principle;
 /*
  S stands for Single Responsibility Principle which means every class should have single responsibility.
  Each class should have only one reason to change.
@@ -14,8 +14,8 @@ public class SingleResponsibilityPrinciple {
     }
 }
 class Marker{
-    String name;
-    String color;
+    private String name;
+    private String color;
     int year;
     int price;
     public Marker(String name, String color, int year, int price){
@@ -24,9 +24,12 @@ class Marker{
         this.year = year;
         this.price = price;
     }
+    public String getName(){
+        return name;
+    }
 }
 /*
-This class Invoice doesn't following single responsibility because
+This class Invoice doesn't follow single responsibility because
 this class can be changed by 3 different reasons :-
 1. If we want to change calculateTotal.
 2. On change of printInvoice.
@@ -63,6 +66,9 @@ class Invoice{
     public Invoice(Marker marker,int quantity){
         this.marker = marker;
         this.quantity = quantity;
+    }
+    public String getName(){
+        return marker.getName();
     }
     public int calculateTotal(){
         int price = (marker.price)*(this.quantity);
