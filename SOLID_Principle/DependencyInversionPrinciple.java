@@ -6,7 +6,10 @@ package SOLID_Principle;
 public class DependencyInversionPrinciple {
     public static void main(String[] args) {
         Keyboard keyboard = new WirelessKeyboard();
-
+        Mouse mouse = new BluetoothMouse();
+        NewMacBook macBook = new NewMacBook(keyboard, mouse);
+        macBook.keyboardType();
+        macBook.mouseType();
     }
 }
 
@@ -46,6 +49,12 @@ class WirelessKeyboard implements Keyboard{
 interface Mouse{
     void type();
 }
+class BluetoothMouse implements Mouse{
+    @Override
+    public void type() {
+        System.out.println("Bluetooth Mouse");
+    }
+}
 class NewMacBook{
     private final Keyboard keyboard;
     private final Mouse mouse;
@@ -53,6 +62,12 @@ class NewMacBook{
     public NewMacBook(Keyboard keyboard, Mouse mouse) {
         this.keyboard = keyboard;
         this.mouse = mouse;
+    }
+    public void mouseType(){
+        mouse.type();
+    }
+    public void keyboardType(){
+        keyboard.type();
     }
 }
 

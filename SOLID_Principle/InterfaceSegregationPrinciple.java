@@ -30,7 +30,7 @@ class Waiter implements RestaurantEmployee{
 
     @Override
     public void serveCustomers() {
-
+        System.out.println("Serving Customers");
     }
 }
 
@@ -53,11 +53,24 @@ interface ChefInterface{
 class NewWaiter implements WaiterInterface{
     @Override
     public void takeOrder() {
-
+        System.out.println("Taking Order");
     }
 
     @Override
     public void serveFood() {
+        System.out.println("Serving Food");
+    }
+}
 
+class NewChef implements ChefInterface{
+
+    @Override
+    public void cookFood() {
+        System.out.println("cooking Food");
+    }
+
+    @Override
+    public void decideMenu() {
+        System.out.println("deciding Menu");
     }
 }
