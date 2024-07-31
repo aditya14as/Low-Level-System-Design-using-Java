@@ -6,5 +6,8 @@ public class Main {
         vehicle.drive();
         Vehicle vehicle1 = new XyzVehicle();
         vehicle1.drive();
+
+        Vehicle vehicle2 = new ElectricVehicle();
+        vehicle2.drive();
     }
 }
